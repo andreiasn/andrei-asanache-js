@@ -53,18 +53,17 @@ console.log((2021 - person.pets[2].age).toString());
 console.warn(`
 Calculeaza si salveaza in variabila difference diferenta de ani dintre persoana si animalul de pe pozitia 0 si afiseaza aceasta diferenta. Foloseste anul curent.`);
 
-var $difference = 2021 - person.birthYear - person.pets[0].age;
+var difference = 2021 - person.birthYear - person.pets[0].age;
 
-console.log($difference.toString());
+console.log(difference.toString());
 
 console.warn(`Salveaza numele animalului de pe pozitia 0 intr-o variabila numita petName.
 Afiseaza propozitia: “Intre firstName si petName este o diferenta de difference ani.”.
 `);
 
-var $petName = person.pets[0].name;
+var petName = person.pets[0].name;
 
 // console.log($petName);
-
 console.log(
   `Intre ${person.firstName} si ${petName} este o diferenta de ${difference} ani.`,
 );
