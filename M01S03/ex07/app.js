@@ -67,3 +67,32 @@ var petName = person.pets[0].name;
 console.log(
   `Intre ${person.firstName} si ${petName} este o diferenta de ${difference} ani.`,
 );
+
+// Folosind metoda document.getElementById() afiseaza urmatoarele 4 afirmatii despre obiectul person.
+var firstItem = document.getElementById('prop01');
+var secondItem = document.getElementById('prop02');
+var thirdItem = document.getElementById('prop03');
+var fourthItem = document.getElementById('prop04');
+
+// Afiseaza propozitia “ firstName, pet1, pet2, pet3 locuiesc toti in aceeasi casa” (folosind bracket notation pe arrayul pets)
+firstItem.innerText = `${person.firstName}, ${person.pets[0].name}, ${person.pets[1].name}, ${person.pets[2].name} locuiesc toti in aceeasi casa.`;
+
+// Calculeaza si afiseaza diferenta de varsta dintre animalul de pe pozitia 0 si cel de pe pozitia 2
+var ageDif = person.pets[0].age - person.pets[2].age;
+secondItem.innerText = `Intre ${person.pets[0].name} si ${person.pets[2].name} este o diferenta de ${ageDif} ani.`;
+
+// Afiseaza propozitia: “Ma numesc xxx yyy, m-am nascut in birthYear si codul meu postal este: zipCode”
+var name = person.firstName;
+var surname = person.lastName;
+var birthYear = person.birthYear;
+var zipCode = person.zipCode;
+
+thirdItem.innerText = `Ma numesc ${name} ${surname}, m-am nascut in ${birthYear} si codul meu postal este: ${zipCode}.`;
+
+// Afiseaza propozitia: “Animalele mele s-au nascut in xxxx, xxx, respectiv xxx.” Foloseste anul curent pentru a efectua scaderea.
+
+var firstPetBirthAge = 2021 - person.pets[0].age;
+var secondPetBirthAge = 2021 - person.pets[1].age;
+var thirdPetBirthAge = 2021 - person.pets[2].age;
+
+fourthItem.innerText = `Animalele mele s-au nascut in ${firstPetBirthAge}, ${secondPetBirthAge}, respectiv ${thirdPetBirthAge}.`;
