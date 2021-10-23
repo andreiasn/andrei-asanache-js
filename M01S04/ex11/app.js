@@ -94,7 +94,7 @@ console.warn(`
 // ['larry', 'steven', 'carol']
 var friendsKeys = Object.keys(person.friends);
 // delete this i
-// var i = 0;
+var i = 0;
 
 while (i < friendsKeys.length) {
   var friendKey = friendsKeys[i];
@@ -105,6 +105,70 @@ while (i < friendsKeys.length) {
   console.log(
     `Diferenta de varsta intre ${name} si ${person.name} este de ${ageDiff} ani.`,
   );
+
+  i++;
+}
+
+console.warn(
+  `Folosind Object.keys() pe proprietatea skills, afiseaza toate abilitatile din obiectul skills.`,
+);
+
+var skillName = Object.keys(person.skills);
+Object.keys(person.skills).forEach(function (skillName) {
+  console.log(`${skillName}`);
+});
+
+console.warn(
+  `Prin aceeasi metoda, afiseaza o lista cu numele complet al prietenilor. `,
+);
+
+var friendsName = Object.keys(person.friends);
+for (i = 0; i < friendsName.length; i++) {
+  var friendName = friendsName[i];
+  var friend = person.friends[friendName];
+  var { name, surname } = friend;
+
+  console.log(`${name} ${surname}`);
+}
+
+console.warn(
+  `Afiseaza propozitia: “Prietenii mei sunt Larry Larryson, Steven Stevenson si Carol Carolson.” folosind Object.keys()`,
+);
+
+var message = 'Prietenii mei sunt ';
+Object.keys(person.friends).forEach(function (
+  friendProperty,
+  index,
+  friendKeys,
+) {
+  var friend = person.friends[friendProperty];
+  var punctuation = ', ';
+  var arrLength = friendKeys.length;
+
+  if (index === arrLength - 1) {
+    punctuation = '.';
+  }
+
+  if (index === arrLength - 2) {
+    punctuation = ' si ';
+  }
+
+  message = `${message}${friend.name} ${friend.surname}${punctuation}`;
+});
+console.log(message);
+
+console.warn(
+  `Folosind bucla, afiseaza mai multe propozitii (cate una per console.log()) care sa afiseze: “Larry are xx ani. Steven are …”`,
+);
+
+var friendsKeys = Object.keys(person.friends);
+var i = 0;
+while (i < friendsKeys.length) {
+  var friendKey = friendsKeys[i];
+  var friend = person.friends[friendKey];
+  var { name, age } = friend;
+
+  console.log(`${name} are ${age} ani.`);
 
   i++;
 }
