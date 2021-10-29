@@ -30,7 +30,7 @@ class Car {
   }
 
   setSpeed(speed) {
-    if (speed < this.topRevereSpeed) {
+    if (speed < this.topReverseSpeed) {
       this.speed = 50;
 
       return;

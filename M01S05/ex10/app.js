@@ -13,3 +13,15 @@ console.warn(
 const calculateSquareSurface = (L) => {
   return calculateSurface(L);
 };
+
+console.warn(`Cu metoda noua calculeaza suprafata unui patrat de 4 pe 4.`);
+console.log(calculateSquareSurface(4));
+
+console.warn(`Creeaza un wrapper numit calculateRectangleSurface() pentru calculateSurface() care sa primeasca doi parametri
+ si sa calculeze suprafata unui dreptunghi. `);
+const calculateRectangleSurface = (L, l) => {
+  return calculateSurface(L, l);
+};
+
+console.warn(`Cu metoda noua calculeaza suprafata unui dreptunghi de 8 pe 9. `);
+console.log(calculateRectangleSurface(8, 9));
