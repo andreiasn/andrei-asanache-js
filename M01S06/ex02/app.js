@@ -6,7 +6,7 @@ let browserName = 'N/A';
 
 if (userAgentString.includes('chrome')) {
   message = 'Navighezi folosind Chrome';
-  browserName = 'Crome';
+  browserName = 'Chrome';
 }
 
 paragraphElement.innerText = message;
