@@ -6,6 +6,8 @@ class Car {
     speed,
     topSpeed = 160,
     topReverseSpeed = -50,
+    isTrunkOpen = false,
+    areLightsOn = false,
   ) {
     this.make = make;
     this.color = color;
@@ -13,6 +15,8 @@ class Car {
     this.speed = speed;
     this.topSpeed = topSpeed;
     this.topReverseSpeed = topReverseSpeed;
+    this.isTrunkOpen = isTrunkOpen;
+    this.areLightsOn = areLightsOn;
   }
 
   accelerate() {
@@ -27,6 +31,30 @@ class Car {
     this.speed = 0;
 
     console.log(this.speed);
+  }
+
+  openTrunk() {
+    this.isTrunkOpen = true;
+  }
+
+  closeTrunk() {
+    this.isTrunkOpen = false;
+  }
+
+  turnLightsOn() {
+    this.areLightsOn = true;
+  }
+
+  turnLightsOff() {
+    this.areLightsOn = false;
+  }
+
+  flashLights() {
+    this.turnLightsOn();
+
+    setTimeout(() => {
+      this.turnLightsOff();
+    }, 2000);
   }
 
   setSpeed(speed) {
@@ -46,7 +74,8 @@ class Car {
   }
 }
 
-const audi = new Car('Audi', 'black', 4, 50, 240, -100);
+const audi = new Car('Audi', 'black', 4, 50, 240, -100, false, false);
+console.log(audi);
 
 console.warn(`
 Instantiaza o alta masina (Opel, red, cu 4 roti si viteza 3). O poti salva intr-o variabila numita opel.
@@ -64,6 +93,6 @@ cars.forEach((car) => {
     `Masina era marca ${car.make} si se deplasa cu ${car.speed} km/h.`,
   );
   car.setSpeed(car.speed - 5);
-  console.log(`Viteza noua este ${car.speed}.`);
+  console.log(`Viteza noua este ${car.speed} km/h.`);
   car.setSpeed(car.speed + 5);
 });

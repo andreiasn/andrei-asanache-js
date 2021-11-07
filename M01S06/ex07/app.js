@@ -8,10 +8,6 @@ const paragraphLog = () => {
     document.body.append(logContainer);
   }
 
-  for (i = 0; i < arguments.length; i++) {
-    console.log;
-  }
-
   messageElement.innerText = message;
 
   logContainer.append(messageElement);

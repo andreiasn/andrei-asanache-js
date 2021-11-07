@@ -67,3 +67,19 @@ class Bicycle extends Vehicle {
 }
 
 const bike = new Bicycle('Pegas', 'red', 8, 20);
+
+class Tricycle extends Vehicle {
+  constructor(make, color, speed, topSpeed) {
+    super(make, color, 3, speed, topSpeed, 0);
+  }
+
+  decelerate() {
+    if (this.speed - 1 < this.topReverseSpeed) {
+      this.speed = this.topReverseSpeed;
+    }
+
+    this.displaySpeed();
+  }
+}
+
+const trike = new Tricycle('Tryke', 'red', -2, 9);
