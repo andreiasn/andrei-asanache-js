@@ -1,10 +1,11 @@
 class Car {
   areLightsOn = false;
 
-  constructor(xPos = 0, yPos = 0, color = 'black') {
+  constructor(xPos = 0, yPos = 0, color = 'black', wheelsColor = 'black') {
     this.xPos = xPos;
     this.yPos = yPos;
     this.color = color;
+    this.wheelsColor = wheelsColor;
   }
 
   moveTo(x = 0, y = 0) {
@@ -12,11 +13,14 @@ class Car {
     this.frame.style.top = `${y}px`;
   }
 
-  changeColor(color = 'red') {
+  changeBodyColor(color = 'red') {
     this.carBody.style.backgroundColor = color;
     this.carTop.style.backgroundColor = color;
-    this.wheelFront.style.backgroundColor = color;
-    this.wheelBack.style.backgroundColor = color;
+  }
+
+  changeWheelsColor(wheelsColor = 'green') {
+    this.wheelFront.style.backgroundColor = wheelsColor;
+    this.wheelBack.style.backgroundColor = wheelsColor;
   }
 
   turnLightsOn() {
@@ -27,6 +31,16 @@ class Car {
   turnLightsOff() {
     this.areLightsOff = false;
     this.lightFront.classList.remove('light--on');
+  }
+
+  engageBreak() {
+    this.areLightsOn = true;
+    this.lightBack.classList.add('light--on');
+  }
+
+  disengageBreak() {
+    this.areLightsOn = true;
+    this.lightBack.classList.remove('light--on');
   }
 
   toggleHazards() {
@@ -114,3 +128,26 @@ class Car {
 
 const audi = new Car(250, 400, 'black');
 audi.render();
+
+console.warn(`Creeaza intr-un folder oarecare un script alaturat unui HTML care sa numere in consola de la 1 la 100 si daca numarul se divide cu 3 scrie Fizz, daca se divide cu 5 scrie Buzz si daca se divide cu ambele, scrie FizzBuzz
+(atunci cand scrii cuvintele, omite numerele) `);
+
+var i = 1;
+for (i = 1; i <= 100; i++) {
+  if (i % 3 === 0 && i % 5 !== 0) {
+    console.log('Fizz');
+    continue;
+  }
+
+  if (i % 5 === 0 && i % 3 !== 0) {
+    console.log('Buzz');
+    continue;
+  }
+
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log('Buzzfizz');
+    continue;
+  }
+
+  console.log(i);
+}

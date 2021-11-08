@@ -27,6 +27,20 @@ const Car = {
 
     this.displaySpeed();
   },
+  areLightsOn: false,
+  turnLightsOn: function () {
+    this.areLightsOn = true;
+  },
+  turnLightsOff: function () {
+    this.areLightsOn = false;
+  },
+  flashLights: function () {
+    this.turnLightsOn();
+
+    setTimeout(() => {
+      this.turnLightsOff();
+    }, 2000);
+  },
 };
 
 const audi = Object.create(Car);

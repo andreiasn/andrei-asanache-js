@@ -33,7 +33,7 @@ const $span = $('<span>', {
 }).appendTo($paragraph);
 
 $('<h2>', {
-  text: 'Mesage',
+  text: 'Mesaje',
 }).prependTo($('.container'));
 
 const $navigation = $('<div>', {
@@ -42,3 +42,25 @@ const $navigation = $('<div>', {
 });
 const $container = $('.container');
 $container.after($navigation);
+
+const $anchor = $('<a>', {
+  class: 'nav-link',
+  text: 'Primul link',
+  href: '',
+}).appendTo($navigation);
+
+$('<h2>', {
+  text: 'Navigatie',
+}).before($('.navigation .nav-link'));
+
+$('<sup>', {
+  text: '1',
+}).prependTo($('.navigation .nav-link'));
+$navigation.appendTo($body);
+
+const $title = $('<h1>', {
+  text: 'Invat jQuery',
+});
+
+$title.before($container);
+$title.appendTo($body);
