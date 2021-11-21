@@ -47,15 +47,22 @@ const $anchor = $('<a>', {
   class: 'nav-link',
   text: 'Primul link',
   href: '',
-}).appendTo($navigation);
+});
+$navigation.append($anchor);
 
-$('<h2>', {
+const $title2 = $('<h2>', {
   text: 'Navigatie',
-}).before($('.navigation .nav-link'));
+});
 
-$('<sup>', {
+$title2.before($('.navigation .nav-link'));
+$title2.appendTo($body);
+
+const $sup = $('<sup>', {
   text: '1',
-}).prependTo($('.navigation .nav-link'));
+});
+$sup.prependTo($('.nav-link'));
+$sup.appendTo($navigation);
+
 $navigation.appendTo($body);
 
 const $title = $('<h1>', {
@@ -64,3 +71,17 @@ const $title = $('<h1>', {
 
 $title.before($container);
 $title.appendTo($body);
+
+const $finalParagraph = $('<p>', {
+  text: 'Documentatia jQuery poate fi gasita ',
+});
+
+const $finalAnchor = $('<a>', {
+  class: 'final-anchor',
+  text: 'aici',
+  target: 'blank',
+  href: 'https://api.jquery.com',
+});
+
+$finalAnchor.appendTo($finalParagraph);
+$finalParagraph.appendTo($body);
