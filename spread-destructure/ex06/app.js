@@ -22,3 +22,6 @@ let person = {
     },
   ],
 };
+console.warn(`4`);
+const [, { name, surname, age }] = person.friends;
+console.log(`Ma numesc ${name} ${surname} si am ${age} de ani.`);

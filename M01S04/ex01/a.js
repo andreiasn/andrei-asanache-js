@@ -22,3 +22,19 @@ if (name.includes('a')) {
 
 messageContainer.innerText = message;
 alternateMessageContainer.innerText = `${lengthMessage} | ${inclusionMessage}`;
+
+const name = document.getElementById('name');
+const button = document.getElementsByName('submit');
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function (e) {
+  const alertMessage = name.value;
+
+  if (alertMessage.length === 0) {
+    alert('Please add a name.');
+  } else {
+    alert(alertMessage);
+  }
+
+  e.preventDefault();
+});

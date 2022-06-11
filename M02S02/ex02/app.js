@@ -13,6 +13,7 @@ $(function () {
       skills: [],
       hasPets: false,
       pets: [],
+      friends: [],
     };
 
     for (const fieldData of formData.entries()) {
@@ -50,6 +51,17 @@ $(function () {
         continue;
       }
 
+      if (fieldName.startsWith('friend-')) {
+        const [friendName, friendSurname, friendAge] = fieldValue.split('|');
+        person.friends.push({
+          friendName,
+          friendSurname,
+          friendAge,
+        });
+
+        continue;
+      }
+
       person[fieldName] = fieldValue;
     }
 
@@ -57,6 +69,8 @@ $(function () {
 
     const $personContainer = renderPerson(person);
     $personContainer.insertAfter($personForm);
+    const $friendsContainer = renderFriends(person);
+    $friendsContainer.insertAfter($personForm);
 
     resetForm($personForm);
     $('#personForm .skillsUl').remove();
@@ -324,6 +338,40 @@ $(function () {
     }
 
     return $petsUl;
+  }
+
+  // //friends ul
+  function renderFriends(person) {
+    const $friendsContainer = $('<article>', {
+      class: 'friendsDetails',
+    });
+
+    $('<h1>', {
+      text: `${person.friends.name} ${person.friends.surname}`,
+    }).appendTo($friendsContainer);
+
+    $('<p>', {
+      text: `Varsta: ${person.friends.age}`,
+    }).appendTo($friendsContainer);
+
+    if (person.friends.length > 0) {
+      const $friendsUl = renderFriendsUl(person.friends);
+
+      $friendsContainer.append($friendsUl);
+    }
+  }
+
+  function renderFriendsUl(friendsArray) {
+    const $friendsUl = $('<ul>');
+    for (let i = 0; i < friendsArray.length; i++) {
+      const { friendName, friendSurname, friendAge } = friendsArray[i];
+
+      $('<li>', {
+        text: `${friendName}: ${friendSurname}: ${friendAge}`,
+      }).appendTo($friendsUl);
+    }
+
+    return $friendsUl;
   }
 
   function resetForm($form) {

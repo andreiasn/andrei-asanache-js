@@ -22,3 +22,15 @@ let person = {
     },
   ],
 };
+
+console.warn(`1`);
+// sintactic sugar pt const skills = person.skills[2]
+const [skill1, , skill3] = person.skills;
+console.log(`Cunosc ${skill1} si ${skill3}.`);
+
+console.warn('2');
+const [, { name: friend2Name, surname: friend2Surname, age: friend2Age }] =
+  person.friends;
+console.log(
+  `Ma numesc ${friend2Name} ${friend2Surname} si am ${friend2Age} de ani.`,
+);
